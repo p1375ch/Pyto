@@ -18,7 +18,7 @@ curl -L https://github.com/ColdGrub1384/Python-Apple-support/releases/download/3
 mkdir python-apple-support
 cd python-apple-support
 
-tar -xzvf Python-3.10-iOS-support.b1.tar.gz
+tar -xzvf ../Python-3.10-iOS-support.b1.tar.gz
 rm ../Python-3.10-iOS-support.b1.tar.gz
 
 cp OpenSSL/libOpenSSL.a ../
@@ -45,7 +45,7 @@ curl -L -O https://github.com/holzschu/network_ios/releases/download/v0.2/networ
 curl -L -O https://github.com/holzschu/ios_system/releases/download/v3.0.0/tar.xcframework.zip
 curl -L -O https://github.com/holzschu/ios_system/releases/download/v3.0.0/tar.xcframework.zip
 curl -L -O https://github.com/holzschu/ios_system/releases/download/v3.0.0/text.xcframework.zip
-find . -name "*.zip" -exec unzip {} \;
+find . -name "*.zip" -exec unzip -o {} \;
 rm *.zip
 popd
 
@@ -57,7 +57,7 @@ popd
 
 rm -rf opencv2.framework
 curl -L -O https://github.com/ColdGrub1384/OpenCV-Contrib-iOS/releases/download/4.3.0/opencv2.framework.zip
-unzip opencv2.framework.zip
+unzip -o opencv2.framework.zip
 rm -rf opencv2.framework.zip
 rm -rf __MACOSX
 
@@ -65,7 +65,7 @@ rm -rf __MACOSX
 
 curl -L https://github.com/ColdGrub1384/lapack-ios/releases/download/v1.4/lapack-ios.zip -o lapack-ios.zip
 mkdir Extensions/SciPy/
-unzip lapack-ios.zip
+unzip -o lapack-ios.zip
 yes | cp -rf lapack-ios/openblas.framework Extensions/OpenBlas
 cp -r lapack-ios/lapack.framework Extensions/SciPy
 yes | cp -rf lapack-ios/ios_flang_runtime.framework Extensions/SciPy
@@ -94,13 +94,14 @@ cd ../../
 
 cd documentations
 curl -L https://docs.python.org/3.10/archives/python-3.10.0-docs-html.zip -o Python.zip
-unzip Python.zip
+unzip -o Python.zip
 rm Python.zip
 cd ../
 
-cd docs
-make html
-cd ../
+# TODO: uncomment when ready
+# cd docs
+# make html
+# cd ../
 
 # Dependencies
 

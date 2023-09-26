@@ -6,16 +6,17 @@ echo "build-numpy.sh"
 echo
 sh build-numpy.sh
 
-for f in build-*.sh; do
+# TODO: uncomment when ready
+# for f in build-*.sh; do
 
-if [ $f != "build-numpy.sh" ]; then
+# if [ $f != "build-numpy.sh" ]; then
 
-echo $f
-echo
-sh $f
+# echo $f
+# echo
+# sh $f
 
-fi
+# fi
 
-done
+# done
 
-sh build-docs.sh
+# sh build-docs.sh
