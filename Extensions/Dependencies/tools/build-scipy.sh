@@ -4,6 +4,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 source environment.sh
 
+export OPENBLAS="$(brew --prefix openblas)"
+
 python3 -m pip install pybind11
 python3 -m pip install pythran
 
