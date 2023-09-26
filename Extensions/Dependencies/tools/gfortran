@@ -135,18 +135,20 @@ except FileExistsError:
 os.chdir(inbox)
 
 os.system(flang_command)
-file_path = None
+file_path = ""
 
 for file in os.listdir("."):
-    if not file.endswith(".ll"):
-        try:
-            os.remove(file)
-        except FileNotFoundError:
-            pass
-    else:
+    if file.endswith(".ll"):
         file_path = os.path.join(os.getcwd(), file)
+    # else:
+    #     try:
+    #         os.remove(file)
+    #     except FileNotFoundError:
+    #         pass
+
 
 os.chdir(cwd)
+
 llc = [os.path.join(dir, "llc"), "-mtriple=arm64-apple-ios", "-filetype=obj", file_path, "-o", output_path]
 subprocess.run(llc, stdout=None, stderr=None)
 
